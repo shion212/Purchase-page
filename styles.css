@@ -143,7 +143,7 @@ canvas {
   top: 50%;
   transform: translate(-50%, -50%);
   font-family: "Comic Sans MS", cursive, sans-serif;
-  font-size: 15.0em; /*adjust according to your need*/
+  font-size: 8em; /*adjust according to your need*/
   text-align: center; /*in case you write multiline text*/
   color:#FF8C00;
 }
