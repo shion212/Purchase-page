@@ -1,0 +1,226 @@
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background-color:#FFF0F5;
+  box-shadow: 0 2px 6px rgba(0,0,0,.16);
+
+}
+.header p{
+text-align:center;
+font-size:120%;
+}
+.global-nav {
+  position: fixed;
+  right: -320px; /* これで隠れる */
+  top: 0;
+  width: 300px; /* スマホに収まるくらい */
+  height: 100vh;
+  padding-top: 80px;
+  background-color:#FFFAFA;
+  transition: all .6s;
+  z-index: 200;
+  overflow-y: auto; /* メニューが多くなったらスクロールできるように */
+}
+.hamburger {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px; /* クリックしやすいようにちゃんと幅を指定する */
+  height: 40px; /* クリックしやすいようにちゃんと高さを指定する */
+  cursor: pointer;
+  z-index: 300;
+}
+.global-nav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.global-nav__item {
+  text-align: center;
+  padding: 0 14px;
+}
+.global-nav__item a {
+  display: block;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  text-decoration: none;
+  color: #111;
+}
+.global-nav__item a:hover {
+  background-color: #eee;
+}
+.hamburger__line {
+  position: absolute;
+  left: 11px;
+  width: 18px;
+  height: 1px;
+  background-color: #111;
+  transition: all .6s;
+}
+.hamburger__line--1 {
+  top: 14px;
+}
+.hamburger__line--2 {
+  top: 20px;
+}
+.hamburger__line--3 {
+  top: 26px;
+}
+.black-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background-color: #000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .6s;
+  cursor: pointer;
+}
+/* 表示された時用のCSS */
+.nav-open .global-nav {
+  right: 0;
+}
+.nav-open .black-bg {
+  opacity: .8;
+  visibility: visible;
+}
+.nav-open .hamburger__line--1 {
+  transform: rotate(45deg);
+  top: 20px;
+}
+.nav-open .hamburger__line--2 {
+  width: 0;
+  left: 50%;
+}
+.nav-open .hamburger__line--3 {
+  transform: rotate(-45deg);
+  top: 20px;
+}
+
+
+
+
+
+.fadein {
+    opacity : 0;
+    transform : translate(0, 50px);
+    transition : all 300ms;
+}
+.fadein.scrollin {
+    opacity : 1;
+    transform : translate(0, 0);
+}
+
+
+
+
+
+html {
+  background:#ecf0f1;
+}
+canvas {
+  display:block;
+  margin:auto;
+  background:#ecf0f1;
+}
+
+
+
+
+
+
+
+
+.textRevealContainer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 15.0em; /*adjust according to your need*/
+  text-align: center; /*in case you write multiline text*/
+  color:#FF8C00;
+}
+
+.textReveal {
+  overflow: hidden;
+  animation: textRevealAnim 2s ease 0.5s forwards;
+}
+
+.textReveal > div {
+  padding: 8px 16px;
+  transform: translateX(100%);
+  border-left: 2px solid red;
+  overflow: hidden;
+  animation: textRevealAnim 2s ease 0.5s forwards,
+    borderOpacityAnim 2s ease 0.5s forwards;
+}
+
+.textReveal > div > div {
+  transform: translateX(-100%);
+  animation: textRevealAnim 2s ease 0.5s forwards;
+}
+
+@keyframes textRevealAnim {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes borderOpacityAnim {
+  50% {
+    border-left: 2px solid red;
+  }
+  100% {
+    border-left: 2px solid transparent;
+  }
+}
+
+.textReveal.x50 {
+  transform: translateX(-50%);
+}
+
+.textReveal.x100 {
+  transform: translateX(-100%);
+}
+
+.textReveal.zoom > div {
+  transform: translateX(100%) scale(0.5, 0.5);
+}
+
+.textReveal.rotateY {
+  perspective: 100px; /*adjust according to your need*/
+}
+
+.textReveal.rotateY > div {
+  transform: translateX(100%) rotateY(20deg);
+}
+
+.textReveal.color > div > div {
+  background: linear-gradient(
+    to right,
+    red,
+    red 45%,
+    orange 45%,
+    orange 55%,
+    red 55%,
+    red
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-size: 300%;
+  animation: textRevealAnim 2s ease 0.5s forwards,
+    bgShiftAnim 3s ease 0.5s forwards;
+}
+
+@keyframes bgShiftAnim {
+  to {
+    background-position: 100%;
+  }
+}
